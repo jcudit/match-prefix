@@ -1,0 +1,12 @@
+name: 'Match Prefix'
+description: 'Action to match a prefix of an Issue Comment'
+inputs:
+  prefix:
+    description: 'A string to match against containing no whitespace (ex. `/deploy`)'
+    required: true
+outputs:
+  result:
+    description: 'Boolean indicating if there was a match'
+runs:
+  using: docker
+  image: Dockerfile
