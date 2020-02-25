@@ -26,3 +26,4 @@ echo "Setting Successful Outputs On Match ..."
 echo ::set-output name=result::true
 echo ::set-output name=actions_url::$(actions_url)
 echo ::set-output name=issue_number::$(issue_number)
+echo ::set-output name=issue_actor::${GITHUB_ACTOR}

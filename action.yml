@@ -11,6 +11,8 @@ outputs:
     description: 'Actions URL for the calling repository'
   issue_number:
     description: 'Issue number of the calling comment'
+  issue_actor:
+    description: 'GitHub handle of the calling actor'
 runs:
   using: docker
   image: Dockerfile
