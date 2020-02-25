@@ -1,10 +1,28 @@
 #!/bin/bash
 
-# Debug Context
-jq -rc '.' $GITHUB_EVENT_PATH
-env
+debug_context () {
+  jq -rc '.' $GITHUB_EVENT_PATH
+  env
+}
+
+comment_body () {
+  jq -rc '.comment.body' $GITHUB_EVENT_PATH
+}
+
+actions_url () {
+  echo https://github.com/${GITHUB_REPOSITORY}/actions
+}
+
+issue_number () {
+  jq -rc '.issue.number' $GITHUB_EVENT_PATH
+}
 
 # Match the desired prefix or fail
+echo "Checking For Prefix Match ..."
 echo ::set-output name=result::false
-echo ${COMMENT_BODY} | egrep -q "^\${MATCH_PREFIX} " || exit 1
+echo $(comment_body) | egrep "^${INPUT_PREFIX} " || exit 1
+
+echo "Setting Successful Outputs On Match ..."
 echo ::set-output name=result::true
+echo ::set-output name=actions_url::$(actions_url)
+echo ::set-output name=issue_number::$(issue_number)

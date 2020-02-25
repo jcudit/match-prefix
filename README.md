@@ -12,7 +12,6 @@ jobs:
         uses: jcudit/match-prefix@v1.0.0
         with:
           prefix: '/run-acceptance-tests'
-          acknowledge_on_match: true
 
   acceptance-tests:
     needs: match-prefix

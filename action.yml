@@ -7,6 +7,10 @@ inputs:
 outputs:
   result:
     description: 'Boolean indicating if there was a match'
+  actions_url:
+    description: 'Actions URL for the calling repository'
+  issue_number:
+    description: 'Issue number of the calling comment'
 runs:
   using: docker
   image: Dockerfile
