@@ -7,6 +7,8 @@ inputs:
 outputs:
   result:
     description: 'Boolean indicating if there was a match'
+  comment_body:
+    description: 'Comment body of the calling comment'
   actions_url:
     description: 'Actions URL for the calling repository'
   issue_number:
