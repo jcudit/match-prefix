@@ -17,6 +17,10 @@ issue_number () {
   jq -rc '.issue.number' $GITHUB_EVENT_PATH
 }
 
+if [[ $(comment_body) == *debug=true* ]]; then
+  debug_context
+fi
+
 # Match the desired prefix or fail
 echo "Checking For Prefix Match ..."
 echo ::set-output name=result::false
